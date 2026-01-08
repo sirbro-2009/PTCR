@@ -1,0 +1,78 @@
+body{
+    background: url("assets/bg/mosquesBg/aqsa.jpg");
+    background-size: cover;
+    font-family: 'Lalezar';
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    
+}
+#title{
+    color: goldenrod;
+    font-size: 72px;
+}
+#adkars{
+background: color-mix(in srgb, cyan 30%, transparent 70%);
+width: 500px;
+height: auto;
+margin: 50px auto ;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+padding: 10px;
+border-radius: 25px;
+color: rgb(138, 92, 32);
+}
+#adhan{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: color-mix(in srgb, aliceblue 50%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    margin: 5% auto;
+}
+#readyy{
+    font-size: 200px;
+    color: #3a210b;
+}
+#afterAdhan{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: color-mix(in srgb, aliceblue 50%, transparent 50%);
+    display: none;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    margin: 5% auto;
+    font-size: 100px;
+    color: #3a210b;
+}
+#hadith{
+    font-size: 100px;
+    color: #3a210b;
+}
+#adhan1{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: color-mix(in srgb, aliceblue 50%, transparent 50%);
+    display: none;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    margin: 5% auto;
+}

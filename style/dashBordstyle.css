@@ -1,0 +1,409 @@
+body{
+    background: url("assets/bg/mosquesBg/aqsa.jpg");
+    background-size: cover;
+    font-family: 'Lalezar';
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    background-size: cover;
+}
+.list{
+    width: 550px;
+    height: auto;
+    background: color-mix(in srgb, rgb(0, 0, 0) 30%, transparent 70%);
+    border-radius: 25px;
+    padding: 25px;
+    color: wheat;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: color-mix(in srgb, bisque 30%, transparent 70%);
+    border-radius: 25px;
+    padding: 10px;
+}
+#theUser{
+    width: 100px;
+    height: 100px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+#userName{
+color: aliceblue;
+}
+
+
+.options{
+    list-style: none;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+#lists{
+    margin-bottom: 50px;
+    height: auto;
+    background: color-mix(in srgb, bisque 30%, transparent 70%);
+    border-radius: 25px;
+    padding: 10px;
+    transition: all 1s ease;
+    box-shadow: 2px 5px 2px white;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#lists:hover{
+    transform: scale(1.1);
+    box-shadow: 2px 2px 5px rgb(95, 56, 6);
+    color: coral;
+}
+
+.Setup{
+    width: 900px;
+    margin-left: 10px;
+    height: auto;
+    border-radius: 25px;
+    background: color-mix(in srgb, #F5f5dc 40%, transparent 60%);
+}
+#userOptions{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+#option{
+    margin-bottom: 50px;
+    height: auto;
+    background: color-mix(in srgb, rgb(69, 35, 0) 30%, transparent 70%);
+    border-radius: 25px;
+    padding: 10px;
+    transition: all 1s ease;
+    box-shadow: 2px 5px 2px white;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 100px;
+}
+#option:hover{
+    transform: scale(1.05);
+    box-shadow: 2px 2px 5px rgb(255, 145, 0);
+    color: rgb(83, 59, 50);
+}
+#uptade,#uptadeTwo{
+    border-radius: 25px;
+    margin-left: 100px;
+    height: 100px;
+    width: 100px;
+    background: url("assets/user/update.png");
+    background-size: 100px 100px;
+    
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: all 1s ease;
+    
+}
+#reset{
+    border-radius: 25px;
+    margin-left: 100px;
+    height: 100px;
+    width: 100px;
+    background: url("assets/user/reset.png");
+    background-size: 100px 100px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: all 1s ease;
+}
+button:hover{
+    transform: scale(1.1);
+}
+#logOut{
+    background: url("assets/user/logOut.png");
+    border: 1px solid transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    transition: all 1s ease;
+}
+#inputName{
+    border-radius: 10px;
+    height: 30px;
+    width: 500px;
+    border:1px solid transparent;
+}
+.fileUpload{
+    background: url("assets/user/upload.png");
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    transition: all 1s ease;
+
+}
+.fileUpload:hover{
+    transform: scale(1.5);
+}
+#profileImg{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+#back{
+    background: url("assets/user/home.png");
+    height: 100px;
+    width: 100px;
+    transition: all 1s ease;
+    border: 2px dashed wheat;
+    border-radius: 25px;
+}
+#back:hover{
+    transform: scale(1.1);
+}
+#backText{
+color: aliceblue;
+}
+.backgroundColor{
+display: flex;
+flex-direction: column;
+}
+#example{
+    font-family: 'andalus';
+    margin-top: 25px;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: color-mix(in srgb, gold 60%, transparent 40%);
+    border-radius: 25px;
+    padding: 10px;
+    color: #2b1c11;
+    font-size: 40px;
+    text-shadow: 2px 2px 8px  gold;
+}
+.timesNamee{
+font-family: 'andalus'; 
+    color: #573617;
+    font-size: 50px;
+}
+.chooceFg{
+    display: flex;
+    flex-direction: column;
+}
+.principalTime{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background: color-mix(in srgb, #6B4423 60%, transparent 40%);
+    padding: 10px;
+    border-radius: 25px;
+    width: 500px;
+    height: 300px;
+    margin: 20px auto ;
+
+}
+#thehour{
+font-size: 75px;
+color: white;
+}
+#theDate{
+font-size: 30px;
+color: cornsilk;
+transform: scale(1);
+transition: all 1s ease;
+}
+#theDate:hover{
+transform: scale(1.1);
+}
+.choceBg{
+    display: flex;
+    flex-direction: column;
+}
+#pColor,#color,#fColor{
+    border-radius: 25px;
+    border: 5px dashed white;
+    width: 200px;
+    height: 40px;
+}
+#imgBg{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#b1{
+    background: url("assets/bg/mosquesBg/aqsa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b2{
+    background: url("assets/bg/mosquesBg/mecca.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b3{
+    background: url("assets/bg/mosquesBg/maddina.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b4{
+    background: url("assets/bg/mosquesBg/mecca3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b5{
+    background: url("assets/bg/mosquesBg/mecca4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b6{
+    background: url("assets/bg/mosquesBg/mecca6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b7{
+    background: url("assets/bg/mosquesBg/mosqe.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b8{
+    background: url("assets/bg/mosquesBg/turk.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b11{
+    background: url("assets/bg/normalBg/5960807393421626622.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b22{
+    background: url("assets/bg/normalBg/a.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b33{
+    background: url("assets/bg/normalBg/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b44{
+    background: url("assets/bg/normalBg/b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b55{
+    background: url("assets/bg/normalBg/c.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b66{
+    background: url("assets/bg/mosquesBg/mecca5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b77{
+    background: url("assets/bg/rayaBg/black.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#b88{
+    background: url("assets/bg/rayaBg/white.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg{
+width: 100px;
+height: 50px;
+border: 2px solid wheat;
+border-radius: 10px;
+transition: all 1s ease;
+cursor: pointer;
+}
+.bg:hover{
+    transform: scale(1.08);
+    transform: rotate(10deg);
+    width: 150px;
+    height: 75px;
+    cursor: pointer;
+
+}
+.bgOptions{
+    display: flex;
+    flex-direction: column;
+
+}
+.uploadBgimg{
+    display: flex;
+    flex-direction: column;
+}
+.uploadImg{
+    background: url("assets/user/upload.png");
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    transition: all 1s ease;
+    border: 10px dashed burlywood;
+    border-radius: 50%;
+}
+.uploadImg:hover{
+    transform: scale(1.5);
+}
+#imgFile{
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+}
+#theMethods{
+height: 40px;
+width: 250px;
+border-radius: 20px;
+background: color-mix(in srgb, burlywood 50%, transparent 50%);
+
+border: #F6E9D7 solid 2px;
+font-size: 15px;
+color: #ffffff;
+}
+.table{
+border: 5px dashed whitesmoke;
+border-radius: 25px;
+padding: 10px;
+}
+.inputs{
+    width: 90%;
+    border-radius: 25px;
+    border: 2px solid transparent ;
+}
+#adhkar{
+    height: 200px;
+    width: 500px;
+    direction: rtl;
+    margin: 20px;
+    font-family: 'Lalezar';
+    font-size: 50px;
+    border-radius: 25px;
+    
+}
+.numberInput{
+    border-radius: 10px;
+    font-size: 15px;
+    border: 2px solid transparent;
+
+}
+#displayTime{
+    border-radius: 25px;
+    border: 2px solid transparent;
+    height: 50px;
+    width: 200px;
+    font-size: 25px;
+}
+.inAdh{
+    width: 100px;
+    height: 100px;
+}
+.desactive{
+    display: none;
+}

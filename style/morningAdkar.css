@@ -1,0 +1,120 @@
+body{
+    background: url("assets/bg/mosquesBg/aqsa.jpg");
+    background-size: cover;
+    font-family: 'Lalezar';
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    background-size: cover;
+}
+@font-face {
+    font-family: 'Uthman';
+    src: url("assets/fonts/UthmanTN_v2-0.ttf");
+}
+#basmalah{
+    width: 100%;
+    
+}
+#taawedh{
+    width: 100%;
+   
+}
+#aya{
+    font-family: 'Uthman';
+    font-size: 20px;
+    color: rgb(116, 75, 22);
+}
+#ayaKoursi{
+    font-family: 'Uthman';
+    font-size: 15px;
+    color: rgb(116, 75, 22);   
+}
+#adhkar{
+    font-family: 'Uthman';
+    font-size: 20px;
+    color: chocolate;
+}
+#dikr2{
+    font-family: 'Uthman';
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(73, 45, 6);    
+}
+#bigSize{
+    font-family: 'Uthman';
+    font-weight: bold;
+    font-size: 29.5px;
+    color: rgb(87, 52, 3);   
+}
+#adhkar3{
+    font-family: 'Uthman';
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(73, 45, 6);  
+}
+#adhkar4{
+    font-family: 'Uthman';
+    font-weight: bold;
+    font-size: 22px;
+    color: rgb(73, 45, 6);      
+}
+#adhkar5{
+    font-family: 'Uthman';
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(73, 45, 6);          
+}
+#howMuch{
+    color: #6A4A2F;
+}
+.countent1{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: color-mix(in srgb, aliceblue 50%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    margin: 5% auto;
+}
+#ready{
+    font-size: 200px;
+    color: #3a210b;
+}
+.countent{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: color-mix(in srgb, aliceblue 50%, transparent 50%);
+    display: none;
+    flex-direction: column;
+font-weight: bold;
+    padding: 25px;
+    border-radius: 25px;
+}
+#line{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+#allDivs{
+    width: 250px;
+    height: 240px;
+    background: color-mix(in srgb, burlywood 50%, transparent 50%);
+    text-align: center;
+    margin: 10px;
+    border-radius: 25px;
+    justify-content: center;
+    direction: rtl;
+    flex-direction: column;
+    padding: 10px;
+    transition: all 1s  ease;
+    cursor: pointer;
+}
+#allDivs:hover{
+    transform: scale(1.1);
+}

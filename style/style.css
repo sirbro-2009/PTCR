@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'thoulouth';
+    src: url(assets/fonts/Traditional\ Arabic\ Regular.ttf);
+}
+body{
+    font-family: 'Lalezar';
+    background-color: #F6E9D7;
+    background: url("assets/bg/mosquesBg/aqsa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    font-family: 'Lalezar';
+    display: flex;
+    flex-direction: column;
+
+
+}
+.theOptions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+option{
+background: color-mix(in srgb, burlywood 50%, transparent 50%);
+border: #F6E9D7 solid 2px;
+font-size: 20px;
+border-radius: 20px;
+color: #82562C;
+}
+#thePlace{
+color: red;
+text-align: center;
+align-items: center;
+margin: 50px;
+}
+#mosqueName{
+    color: rgb(255, 162, 0);
+    text-align: center;
+    align-items: center;
+    font-size: 50px;
+}
+#theWeather{
+    color: blueviolet;
+    font-size: 30px;
+}
+#thePlace,#mosqueName,#theWeather{
+transition: all 1s ease;
+}
+#thePlace:hover,#mosqueName:hover,#theWeather:hover{
+transform: scale(1.1);
+}
+.bord{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 75px;
+}
+/*prayBOX*/
+#prayBOX{
+    font-family: 'andalus';
+    margin-top: 25px;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: color-mix(in srgb, gold 60%, transparent 40%);
+    border-radius: 25px;
+    padding: 10px;
+    
+}
+/*principalTime*/
+.principalTime{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background: color-mix(in srgb, #6B4423 60%, transparent 40%);
+    padding: 10px;
+    border-radius: 25px;
+    width: 500px;
+    height: 300px;
+
+}
+
+.prayerTime{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+#prayBOX,.principalTime{
+    transform: scale(1);
+    transition: all 1s ease;
+}
+#prayBOX:hover,.principalTime:hover{
+    transform: scale(1.1);
+}
+.timesName{
+    color: #573617;
+    font-size: 50px;
+}
+.theTime{
+    color: #2b1c11;
+    font-size: 40px;
+    text-shadow: 2px 2px 8px  gold;
+}
+#thehour{
+font-size: 75px;
+color: white;
+}
+#theDate{
+font-size: 30px;
+color: cornsilk;
+transform: scale(1);
+transition: all 1s ease;
+}
+#theDate:hover{
+transform: scale(1.1);
+}
+.title{
+transform: scale(1);
+transition: all 1s ease;
+font-size: 50px;
+text-align: center;
+align-items: center;
+color: burlywood; 
+}
+#dashboard{
+    background: color-mix(in srgb, #6A4A2F  50%, burlywood 50%);
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 25px;
+    border: 2px solid #6A4A2F;
+    width: 500px;
+    height: 75px;
+    color: antiquewhite;
+    font-family: 'Lalezar';
+    transform: scale(1);
+    transition: all 1s ease;
+}
+#dashboard:hover{
+    transform: scale(1.1);
+}
+#lineLine{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.theIcama{
+font-size: 25px;
+}

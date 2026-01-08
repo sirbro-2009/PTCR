@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBord</title>
+    <link rel="stylesheet" href="style/dashBordstyle.css">
+    <link rel="icon" href="assets/icon.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet"></link>
+</head>
+<body>
+<div class="list">
+    <ul class="options">
+        <li id="lists" ><img src="style/assets/user/user.png" id="theUser"><span id="userName"></span></li>
+        <li id="lists" data="one">user informations</li>
+        <li id="lists" data="two">the style</li>
+        <li id="lists" data="three">calc method</li>
+        <li id="lists" data="four">setup mosque information(for mosques only)</li>
+        <li id="lists" data="five">Setup adhkar</li>
+        <li id="lists" data="six">questions?</li>
+        <li id="lists"><button id="back"></button><span id="backText">back to Home</span></li>
+
+    </ul>
+</div>
+<!--class="Setup" -->
+<div class = "Setup" id="accont"> 
+<ul id="userOptions">
+<li id="option">
+<span>choose your Img Profile</span>
+<div class="fileUpload">
+<input type="file"  id="profileImg" class="fileInput">
+</div>
+</li>
+<li id="option">Enter your name
+    <input type="text" placeholder="enter your name" id="inputName">
+</li>
+<li id="option">
+log out <button id="logOut"></button>
+</li>
+</ul>
+<button id="uptade" title="update"></button>
+</div>
+<!--the style class="Setup"-->
+<div class="desactive" id="styles">
+<ul id="options">
+    <li id="lists" class="backgroundColor">
+        <span id="text">Choose background Color</span>
+        <input type="color"  id="color">
+        <div id="example">
+        <h3 class="timesName">الفجر</h3>
+        <span class="theTime" id="fadjr">06:09</span>
+        <span class="theIcama" id="fadjrIcama">+20</span>
+        </div>
+    </li>
+    <li id="lists" class="chooceFg">
+        <span id="text">Choose your text font color</span>
+        <input type="color"  id="fColor">
+        <h3 class="timesNamee">الفجر</h3>
+    </li>
+    <li id="lists" class="choceBg">
+    <span id="text">Choose background Color</span>
+    <input type="color"  id="pColor">
+    <div class="principalTime" id="principalTime">
+    <h1 id="thehour">00:00:00</h1>
+    <h2 id="theDate">الخميس 1 محرم 1447</h2>
+    </div>
+    </li>
+    <li id="lists" class="bgOptions">
+        <span id="text">choose you background img
+            <div id="imgBg">
+                <button class="bg" id="b1"></button>
+                    <button class="bg" id="b2"></button>
+                        <button class="bg" id="b3"></button>
+                            <button class="bg" id="b4"></button>
+                            <button class="bg" id="b5"></button>
+                        <button class="bg" id="b6"></button>
+                    <button class="bg" id="b7"></button>
+                <button class="bg" id="b8"></button>
+            </div>
+            <div id="imgBg">
+                <button class="bg" id="b11"></button>
+                    <button class="bg" id="b22"></button>
+                        <button class="bg" id="b33"></button>
+                            <button class="bg" id="b44"></button>
+                            <button class="bg" id="b55"></button>
+                        <button class="bg" id="b66"></button>
+                    <button class="bg" id="b77"></button>
+                <button class="bg" id="b88"></button>
+            </div>
+        </span>
+        <div class="uploadBgimg">
+            <span>Set your own backGround image</span>
+            <div class="uploadImg">
+                <input type="file"  id="imgFile">
+            </div>
+        
+        </div>
+    </li>
+    
+</ul>
+<button id="uptadeTwo" title="update"></button>
+<button id="reset" title="reset"></button>
+</div>
+<div class="desactive" id="method">
+    <ul id="options">
+    <li id="lists">
+    <span id="text">Select your a paray method </span>
+    <select  id="theMethods">
+    <option >select one method please</option>
+    <option value="1">1-University of Islamic Sciences, Karachi (South ASIA)</option>
+    <option value="2">2-Islamic Society of North America (ISNA) </option>
+    <option value="3">3-Muslim World League(Eu,TN,MA,..other countries)</option>
+    <option value="4">4-Umm Al-Qura University(KSA)</option>
+    <option value="5">5-Egyptian General Authority  (EG)</option>
+    <option value="8">8-Gulf Region</option>
+    <option value="9">9-Kuwait</option>
+    <option value="10">10-Qatar</option>
+    <option value="11">11-Majlis Ugama Islam Singapura</option>
+    <option value="12">12-Union Organization islamic de France</option>
+    <option value="13">13-Diyanet İşleri Başkanlığı(Türkiye)</option>
+    <option value="14">14-Spiritual Administration of Muslims of Russia</option>
+    <option value="15">15-Moonsighting Committee Worldwide</option>
+    <option value="16">16-Dubai (experimental)</option>
+    <option value="17">17-Jabatan Kemajuan Islam Malaysia (JAKIM)</option>
+    <option value="18">18-Tunisia</option>
+    <option value="19">19-Algeria</option>
+    <option value="20">20-Kementerian Agama Republik Indonesia</option>
+    <option value="21">21-Morocco</option>
+    <option value="22">22-Comunidade Islamica de Lisboa</option>
+    <option value="23">23-Ministry of Awqaf, Islamic Affairs and Holy Places, Jordan</option>
+    
+</select>
+    </li>
+    </ul>
+</div>
+<!--setup mosque information(for mosques only)-->
+<div class="desactive" id="smI">
+
+    <ul id="options">
+        <li id="lists">
+            <span id="text">Enter mosque name</span>
+            <input type="text" id="mName">
+        </li>
+        <li id="lists">
+            <div class="chooceFg">
+            <span id="text" >Enter Icama duration</span>
+            <table  class="table">
+                <tr>
+                    <th>Isha</th>
+                    <th>Maghrib</th>
+                    <th>Asr</th>
+                    <th>Dhuhr</th>
+                    <th>Fadjr</th>                    
+                </tr>
+                <tr>
+                    <td><input type="number" class="inputs" id="IshaIcama"></td>
+                    <td><input type="number" class="inputs" id="MaghribIcama"></td>
+                    <td><input type="number" class="inputs" id="AsrIcama"></td>
+                    <td><input type="number" class="inputs" id="DhuhrIcama"></td>
+                    <td><input type="number" class="inputs" id="FadjrIcama"></td>
+                </tr>
+            </table>
+            </div>
+        </li>
+
+    </ul>
+</div>
+<div class="desactive" id="values">
+    <ul id="options">
+        <li id="lists">
+            <span id="text">Enter your adhkar</span>
+            <textarea  id="adhkar"></textarea>
+        </li>
+        <li id="lists">
+            <span id="text">Adkar display period (choose one only )</span>
+            <input type="number" class="numberInput" placeholder="How often per hour?" id="ho">
+            <input type="number" class="numberInput" placeholder="How often per minute?" id="mi">
+            <input type="number" class="numberInput" placeholder="How many per second?" id="sec">        
+        </li>
+        <li id="lists">
+            <span id="text">Adkar display time</span>
+            <input type="time" id="displayTime">
+            
+        </li>
+        <li id="lists">
+        <span id="text">Enable morning Adhkar =></span>
+        <input type="checkbox" class="inAdh"   id="mornAdhkar">
+        <span></span>
+        </li>
+        <li id="lists">
+        <span id="text">Enable evening Adhkar =></span>
+        <input type="checkbox" class="inAdh"  id="evenAdhkar">
+        <span></span>
+        </li>
+    </ul>
+</div>
+<div class="desactive" id="questions">
+    <li id="lists">
+        <span id="text">
+                Is my accont real account?
+        </span>
+    </li>
+    <li id="lists">
+        No,It s not,its a local account 
+    </li>
+    <li id="lists">It s important to choice a cala method?</li>
+    <li id="lists">yes,It is, To avoid the values ​​given by the application being incorrect</li>
+    <li id="lists">about adkar duration display?</li>
+    <li id="lists">input ypur adkars,and display time</li>
+    <li id="lists">must i uplod image only in style or uplode input?</li>
+    <li id="lists">Yes,you must</li>
+
+</div>
+<script src="script/dashbord.js"></script>
+</body>
+</html>
