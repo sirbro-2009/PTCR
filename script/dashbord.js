@@ -295,3 +295,21 @@ everyDiv.forEach((e)=>{
 }
 }
 
+//offset pray time
+let FadjrOffset = $.getElementById("FadjrOffset")
+let DhuhrOffset = $.getElementById("DhuhrOffset")
+let AsrOffset = $.getElementById("AsrOffset")
+let MaghribOffset = $.getElementById("MaghribOffset")
+let IshaOffset = $.getElementById("IshaOffset")
+let ImsakOffset = $.getElementById("ImsakOffset")
+let listOffset = [FadjrOffset,DhuhrOffset,AsrOffset,MaghribOffset,IshaOffset,ImsakOffset]
+listOffset.forEach((e)=>{
+e.oninput= ()=>{
+localStorage.setItem(e.id,e.value)
+}
+})
+//madhab
+let optionsMadhab = $.getElementById("madhab")
+optionsMadhab.onchange = ()=>{
+    localStorage.setItem("madhabValue",optionsMadhab.value)
+}

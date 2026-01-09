@@ -54,7 +54,7 @@ navigator.geolocation.getCurrentPosition(
     let lat = posithion.coords.latitude
     let log = posithion.coords.longitude 
     //mApperence = window.localStorage.getItem("id")
-    let prayApilink = `https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&longitude=${log}&method=${window.localStorage.getItem("id")||3}` 
+    let prayApilink = `https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&longitude=${log}&method=${window.localStorage.getItem("id")||3}&school=${localStorage.getItem("madhabValue")||0}&tune=${localStorage.getItem("ImsakOffset")||0},${localStorage.getItem("FadjrOffset")||0},0,${localStorage.getItem("DhuhrOffset")||0},${localStorage.getItem("AsrOffset")||0},${localStorage.getItem("MaghribOffset")||0},0,${localStorage.getItem("IshaOffset")||0},0` 
     let waetherApiLink = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${log}&current_weather=true&timezone=auto`
     let placeApiLink = `https://us1.locationiq.com/v1/reverse.php?key=pk.c1726c6a2a12b42ad99a440efb52627d&lat=${lat}&lon=${log}&format=json`
     console.log(prayApilink)

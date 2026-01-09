@@ -357,7 +357,7 @@ cursor: pointer;
     height: 100%;
     width: 100%;
 }
-#theMethods{
+#theMethods,#madhab{
 height: 40px;
 width: 250px;
 border-radius: 20px;
