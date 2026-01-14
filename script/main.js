@@ -37,27 +37,40 @@ let isha = $.getElementById("isha")
 let Imsak = $.getElementById("Imsak")
 let thePLace =$.getElementById("thePlace")
 let theWeather = $.getElementById("theWeather")
-
-//get
-/*
-let theMethod = $.getElementById("theMethods")
-theMethod.onclick = (_)=>{
-    let theM  = theMethod.value
-    window.localStorage.setItem("id",theM)
-    
-}*/
 //get times and wether see it function 
 function all(){
-navigator.geolocation.getCurrentPosition(
-    (posithion)=>{
-//get lat an long and 
-    let lat = posithion.coords.latitude
-    let log = posithion.coords.longitude 
-    //mApperence = window.localStorage.getItem("id")
+navigator.permissions.query({ name: 'geolocation' })
+  .then(result => {
+    if(result.state === "granted"){
+        navigator.geolocation.getCurrentPosition((po)=>{     
+        localStorage.setItem("lat1",po.coords.latitude)
+        localStorage.setItem("log1",po.coords.longitude)
+        })
+        let lat = localStorage.getItem("lat1")
+        let log = localStorage.getItem("log1")
+        localStorage.setItem("latF",lat)
+        localStorage.setItem("logF",log)
+    }
+    else if(result.state === "denied" || result.state === "prompt"){
+        let lat = localStorage.getItem("lat")||21.3891
+        let log = localStorage.getItem("log")||39.8579
+        localStorage.setItem("latF",lat)
+        localStorage.setItem("logF",log)
+
+    }
+    
+    if(localStorage.getItem("lat") !== null && localStorage.getItem("log") !== null){
+        let lat = localStorage.getItem("lat")
+        let log = localStorage.getItem("log")
+        localStorage.setItem("latF",lat)
+        localStorage.setItem("logF",log)
+    }
+let lat = localStorage.getItem("latF")
+let log = localStorage.getItem("logF")
     let prayApilink = `https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&longitude=${log}&method=${window.localStorage.getItem("id")||3}&school=${localStorage.getItem("madhabValue")||0}&tune=${localStorage.getItem("ImsakOffset")||0},${localStorage.getItem("FadjrOffset")||0},0,${localStorage.getItem("DhuhrOffset")||0},${localStorage.getItem("AsrOffset")||0},${localStorage.getItem("MaghribOffset")||0},0,${localStorage.getItem("IshaOffset")||0},0` 
     let waetherApiLink = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${log}&current_weather=true&timezone=auto`
     let placeApiLink = `https://us1.locationiq.com/v1/reverse.php?key=pk.c1726c6a2a12b42ad99a440efb52627d&lat=${lat}&lon=${log}&format=json`
-    console.log(prayApilink)
+    console.log(prayApilink,placeApiLink)
      //fetch placeApi
     fetch(placeApiLink).then(
     (res)=>{
@@ -65,15 +78,15 @@ navigator.geolocation.getCurrentPosition(
     
         return resData
     }
-   ).then(
-    (data)=>{
-        let city = data.address.city
-        let state = data.address.state
-        let country = data.address.country
-        let fullAdrees = `${city}-${state}-${country}`
-        thePLace.textContent = fullAdrees
+).then(
+(data)=>{
+    let city = data.address.city||localStorage.getItem("nameCity")||``
+    let state = data.address.state
+    let country = data.address.country
+    let fullAdrees = `${city}-${state}-${country}`
+    thePLace.textContent = fullAdrees
     }
-   )
+)
     //fetch prayer Api
     fetch(prayApilink).then(
         (data)=>{
@@ -135,43 +148,40 @@ navigator.geolocation.getCurrentPosition(
             let dayStatu = data.current_weather.is_day
             
 let wetherEmoj =
-  whertherCode === 0  ?dayStatu ===1?"☀️":"🌑" :
-  whertherCode === 1  ?dayStatu ===1?"🌤️":"🌑☁️" :
-  whertherCode === 2  ?dayStatu ===1? "⛅" :"🌑☁️" :
-  whertherCode === 3  ? "☁️" :
-  whertherCode === 45 ? "🌫️" :
-  whertherCode === 48 ? "🌫️❄️" :
-  whertherCode === 51 ? "🌦️" :
-  whertherCode === 53 ? "🌦️" :
-  whertherCode === 55 ? "🌧️" :
-  whertherCode === 56 ? "🌧️❄️" :
-  whertherCode === 57 ? "🌧️❄️" :
-  whertherCode === 61 ? "🌧️" :
-  whertherCode === 63 ? "🌧️🌧️" :
-  whertherCode === 65 ? "🌧️⛈️" :
-  whertherCode === 66 ? "🌧️❄️" :
-  whertherCode === 67 ? "🌧️❄️" :
-  whertherCode === 71 ? "🌨️" :
-  whertherCode === 73 ? "🌨️🌨️" :
-  whertherCode === 75 ? "❄️❄️" :
-  whertherCode === 77 ? "🌨️" :
-  whertherCode === 80 ? "🌦️" :
-  whertherCode === 81 ? "🌦️🌧️" :
-  whertherCode === 82 ? "🌧️⛈️" :
-  whertherCode === 85 ? "🌨️" :
-  whertherCode === 86 ? "❄️🌨️" :
-  whertherCode === 95 ? "⛈️" :
-  whertherCode === 96 ? "⛈️🧊" :
-  whertherCode === 99 ? "⛈️🧊🧊" :
-  "🌡️";
-
+whertherCode === 0  ?dayStatu ===1?"☀️":"🌑" :
+whertherCode === 1  ?dayStatu ===1?"🌤️":"🌑☁️" :
+whertherCode === 2  ?dayStatu ===1? "⛅" :"🌑☁️" :
+whertherCode === 3  ? "☁️" :
+whertherCode === 45 ? "🌫️" :
+whertherCode === 48 ? "🌫️❄️" :
+whertherCode === 51 ? "🌦️" :
+whertherCode === 53 ? "🌦️" :
+whertherCode === 55 ? "🌧️" :
+whertherCode === 56 ? "🌧️❄️" :
+whertherCode === 57 ? "🌧️❄️" :
+whertherCode === 61 ? "🌧️" :
+whertherCode === 63 ? "🌧️🌧️" :
+whertherCode === 65 ? "🌧️⛈️" :
+whertherCode === 66 ? "🌧️❄️" :
+whertherCode === 67 ? "🌧️❄️" :
+whertherCode === 71 ? "🌨️" :
+whertherCode === 73 ? "🌨️🌨️" :
+whertherCode === 75 ? "❄️❄️" :
+whertherCode === 77 ? "🌨️" :
+whertherCode === 80 ? "🌦️" :
+whertherCode === 81 ? "🌦️🌧️" :
+whertherCode === 82 ? "🌧️⛈️" :
+whertherCode === 85 ? "🌨️" :
+whertherCode === 86 ? "❄️🌨️" :
+whertherCode === 95 ? "⛈️" :
+whertherCode === 96 ? "⛈️🧊" :
+whertherCode === 99 ? "⛈️🧊🧊" :
+"🌡️";
             theWeather.textContent = `${temperature}°C${wetherEmoj}`
-            
         }
     )
+});
 
-}
-)
 }
 all()
 //style background 
@@ -252,7 +262,7 @@ window.location.href = "adkar.html"
 let adkarValue = localStorage.getItem("adhkarValue")
 let adhkarValue2 = localStorage.getItem("adhkarValue2")
 //
-let fadjTime = localStorage.getItem("fadjTime").split(":")
+let fadjTime = localStorage.getItem("fadjTime").split(":")||alert("Enable location permtion")
 let Hours = parseInt(fadjTime[0])
 let FdjMins = parseInt(fadjTime[1])
 let fadjIcama = parseInt(localStorage.getItem("FadjrIcama"))

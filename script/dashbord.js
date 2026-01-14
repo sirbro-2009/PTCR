@@ -1,3 +1,4 @@
+
 let $ = document 
 //window.localStorage.clear()
 //change profile img
@@ -312,4 +313,31 @@ localStorage.setItem(e.id,e.value)
 let optionsMadhab = $.getElementById("madhab")
 optionsMadhab.onchange = ()=>{
     localStorage.setItem("madhabValue",optionsMadhab.value)
+}
+//place
+let localPlace = $.getElementById("localPlace")
+localPlace.oninput = ()=>{
+    fetch(`https://nominatim.openstreetmap.org/search?q=${localPlace.value}&format=json`).then(
+        (data)=>{
+        let userData = data.json()
+        return userData
+        }
+    ).then(
+        (allData)=>{
+            let lon = allData[0].lon
+            localStorage.setItem("log",lon)
+            let lat = allData[0].lat
+            localStorage.setItem("lat",lat)
+            let cityName = allData[0].name
+            localStorage.setItem("nameCity",cityName)
+        })
+}
+let theReset = $.getElementById("theReset")
+theReset.onclick = ()=>{
+remove("log")
+remove("lat")
+remove("nameCity")
+}
+function remove(para){
+    localStorage.removeItem(para)
 }
