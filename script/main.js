@@ -1,4 +1,6 @@
 ////بسم الله الرحمن الرحيم
+//scroling
+window.scroll(100,100)
 //set time and date for principalTime
 let $ = document
 let theHours = $.getElementById("thehour")
@@ -339,3 +341,4 @@ location.href = "masaAdkar.html"
 //
 
 }, 1000);
+
