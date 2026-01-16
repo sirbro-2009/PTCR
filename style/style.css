@@ -21,6 +21,9 @@ body{
     align-items: center;
     text-align: center;
 }
+.theOptions>p{
+    color: wheat;
+}
 
 option{
 background: color-mix(in srgb, burlywood 50%, transparent 50%);
@@ -56,12 +59,12 @@ transform: scale(1.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 75px;
+    margin-bottom: 10px;
 }
 /*prayBOX*/
 #prayBOX{
     font-family: 'andalus';
-    margin-top: 25px;
+    margin-top: 1px;
     width: 250px;
     height: auto;
     display: flex;
