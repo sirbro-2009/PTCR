@@ -266,14 +266,14 @@ let adhkarValue2 = localStorage.getItem("adhkarValue2")
 let fadjTime = localStorage.getItem("fadjTime").split(":")||alert("Enable location permtion")
 let Hours = parseInt(fadjTime[0])
 let FdjMins = parseInt(fadjTime[1])
-let fadjIcama = parseInt(localStorage.getItem("FadjrIcama"))
+let fadjIcama = parseInt(localStorage.getItem("FadjrIcama"))||0
 let Mins = fadjIcama+FdjMins+15
 adkarCheck(Mins,Hours)
 //
 let AsrTime = localStorage.getItem("Asr").split(":")
 let Hours2 = parseInt(AsrTime[0])
 let AsrMins = parseInt(AsrTime[1])
-let AsrIcamaa = parseInt(localStorage.getItem("AsrIcama"))
+let AsrIcamaa = parseInt(localStorage.getItem("AsrIcama"))||0
 let Mins2 = AsrIcamaa+AsrMins+15
 adkarCheck2(Mins2,Hours2)
 //
@@ -327,17 +327,19 @@ let date = new Date(Date.now())
 let hours = date.getHours()<10?`0${date.getHours()}`:date.getHours()
 let mins = date.getMinutes()<10?`0${date.getMinutes()}`:date.getMinutes()
 let fhpChe =`${hours}:${mins}`
+//
+let hoursWithout0 = date.getHours()
+let fullDAtecheck = `${hoursWithout0}:${mins}`
 if(localStorage.getItem("adhkarValue") === "true"){
-if(fhpChe === localStorage.getItem("adkarMorningtime")){
+if(fhpChe === localStorage.getItem("adkarMorningtime")|| fullDAtecheck ===localStorage.getItem("adkarMorningtime")){
 location.href = "morningAdkar.html"
 }
 }
 //
 if(localStorage.getItem("adhkarValue2") === "true"){
-if(fhpChe === localStorage.getItem("adkarEveningtime")){
+if(fhpChe === localStorage.getItem("adkarEveningtime") || fullDAtecheck === localStorage.getItem("adkarEveningtime")){
 location.href = "masaAdkar.html"
 }}
 //
-
 }, 1000);
 //
