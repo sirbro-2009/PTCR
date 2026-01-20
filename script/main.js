@@ -1,7 +1,9 @@
 ////بسم الله الرحمن الرحيم
 
-//set time and date for principalTime
+
 let $ = document
+
+//set time and date for principalTime
 let theHours = $.getElementById("thehour")
 let theDay = $.getElementById("theDate")
 //hours
@@ -343,3 +345,24 @@ location.href = "masaAdkar.html"
 //
 }, 1000);
 //
+//for stable viues
+let line  =$.getElementsByClassName("prayerTime")[0]
+let theOptions= $.getElementsByClassName("theOptions")[0]
+let bord= $.getElementsByClassName("bord")[0]
+let allLines = [line,theOptions,bord]
+let principaTime = $.getElementsByClassName("principalTime")[0]
+let deviceCker = navigator.userAgent
+let rerIphone = /iPhone/
+let refAndroid= /Android/
+if(refAndroid.test(deviceCker) === true || rerIphone.test(deviceCker) === true){
+prayeBox.forEach((e)=>{
+e.style.width = `100%`
+e.style.height = `300px`
+e.style.marginTop = `30px`
+})
+allLines.forEach((e)=>{
+    e.style.flexDirection = `column`
+    e.style.marginBottom= `30px`
+    principaTime.style.marginTop = `30px`
+})
+}
