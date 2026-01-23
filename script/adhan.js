@@ -3,7 +3,7 @@ let $ = document
 
     setTimeout(() => {
     window.location.href = "index.html"
-    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60+3000)||303000);
+    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+3000)||303000);
 
 //prayer 
 let fadjTime = localStorage.getItem("fadjTime")
@@ -104,3 +104,4 @@ $.getElementById("alert").style.display = "flex"
 }, 1000);
 
 }
+
