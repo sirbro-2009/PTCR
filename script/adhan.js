@@ -1,10 +1,10 @@
 let $ = document
 ///
-if(localStorage.getItem("icamaCurtlly")){
-    setInterval(() => {
+
+    setTimeout(() => {
     window.location.href = "index.html"
-    }, parseInt(localStorage.getItem("icamaCurtlly"))*60+3000);
-}
+    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60+3000)||303000);
+
 //prayer 
 let fadjTime = localStorage.getItem("fadjTime")
 let DhuhrTime = localStorage.getItem("DhuhrTime")
@@ -66,8 +66,10 @@ $.getElementById("ikama").style.display = "flex"
 
     }
 })
-//180000
-icamaCounter(localStorage.getItem("icamaCurtlly"))
+
+icamaCounter(localStorage.getItem("icamaCurtlly")||0)
+
+
 function icamaCounter(value){
 let secoundTest = 60
 let mins = parseInt(value)
