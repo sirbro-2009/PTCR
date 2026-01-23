@@ -76,3 +76,33 @@ color: rgb(138, 92, 32);
     text-align: center;
     margin: 5% auto;
 }
+#ikama{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: color-mix(in srgb, aliceblue 50%, transparent 50%);
+    display: none;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    margin: 5% auto;
+    font-size: 200px;
+}
+#alert{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: color-mix(in srgb, aliceblue 50%, transparent 50%);
+    display: none;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 25px;
+    justify-content: center;
+    text-align: center;
+    margin: 5% auto;
+    font-size: 50px;
+}

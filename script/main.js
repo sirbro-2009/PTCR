@@ -38,6 +38,8 @@ let assr = $.getElementById("assr")
 let moughrib = $.querySelectorAll("#moughrib")
 let isha = $.getElementById("isha")
 let Imsak = $.getElementById("Imsak")
+let wiriteAble = $.querySelectorAll(".theTime")
+let allName = $.querySelectorAll(".timesName")
 let thePLace =$.getElementById("thePlace")
 let theWeather = $.getElementById("theWeather")
 //get times and wether see it function 
@@ -355,7 +357,8 @@ let principaTime = $.getElementsByClassName("principalTime")[0]
 let deviceCker = navigator.userAgent
 let rerIphone = /iPhone/
 let refAndroid= /Android/
-if(refAndroid.test(deviceCker) === true || rerIphone.test(deviceCker) === true){
+let tv = /TV/
+if(rerIphone.test(deviceCker) === true){
 prayeBox.forEach((e)=>{
 e.style.width = `100%`
 e.style.height = `300px`
@@ -366,4 +369,28 @@ allLines.forEach((e)=>{
     e.style.marginBottom= `30px`
     principaTime.style.marginTop = `30px`
 })
+resiZE(wiriteAble)
+resiZE(allName)
+}
+if(refAndroid.test(deviceCker) === true ){
+    if(tv.test(deviceCker) === false){
+prayeBox.forEach((e)=>{
+e.style.width = `100%`
+e.style.height = `150px`
+e.style.margin = `30px auto`
+
+})
+    allLines.forEach((e)=>{
+    e.style.flexDirection = `column`
+    e.style.marginBottom= `30px`
+    principaTime.style.marginTop = `30px`
+    })
+resiZE(wiriteAble)
+resiZE(allName)
+    }
+}
+function resiZE(name){
+    name.forEach((e)=>{
+        e.style.fontSize = `25px`
+    })
 }

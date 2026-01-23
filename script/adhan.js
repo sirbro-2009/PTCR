@@ -1,8 +1,44 @@
 let $ = document
+///
+if(localStorage.getItem("icamaCurtlly")){
+    setInterval(() => {
+    window.location.href = "index.html"
+    }, parseInt(localStorage.getItem("icamaCurtlly"))*60+3000);
+}
+//prayer 
+let fadjTime = localStorage.getItem("fadjTime")
+let DhuhrTime = localStorage.getItem("DhuhrTime")
+let Asr=localStorage.getItem("Asr")
+let magreb = localStorage.getItem("magreb")
+let Isha = localStorage.getItem("Isha")
+let allTimes = [fadjTime,DhuhrTime,Asr,magreb,Isha]
+
+//ishaIcama magIcama assrIcama dhurIcama fadjrIcama
+let ishaIcama = localStorage.getItem("ishaIcama")||0
+let magIcama=localStorage.getItem("magIcama")||0
+let assrIcama = localStorage.getItem("assrIcama")||0
+let dhurIcama = localStorage.getItem("dhurIcama")||0
+let fadjrIcama = localStorage.getItem("fadjrIcama")||0
+let allIcama = [fadjrIcama,dhurIcama,assrIcama,magIcama,ishaIcama]
+///
+for (let i = 0; i < allTimes.length; i++) {
+    counter(allTimes[i],allIcama[i])
+    
+}
+///
+function counter(time,icama){
+let date = new Date(Date.now())
+let hours = date.getHours()<10?`0${date.getHours()}`:date.getHours()
+let mins = date.getMinutes()<10?`0${date.getMinutes()}`:date.getMinutes()
+let fhpChe =`${hours}:${mins}`    
+if(fhpChe === time){
+    localStorage.setItem("icamaCurtlly",icama)
+}
+}
 //style
 if(localStorage.getItem("bgImg")!==null){
 $.body.style.background = `url(${localStorage.getItem("bgImg")}`
-$.body.style.backgroundRepeat = "no-repeat"
+
 $.body.style.backgroundSize = "cover"
 
 }
@@ -15,7 +51,54 @@ setTimeout(()=>{
 $.getElementById("afterAdhan").style.display = "none"
 $.getElementById("adhan1").style.display = "flex"
 },180000)
+allIcama.forEach((e)=>{
+    if(e===null){
 setTimeout(() => {
 window.location.href = "index.html"   
 }, 240000);
+    }
+    else{
+setTimeout(() => {
+$.getElementById("adhan1").style.display =  "none"
+$.getElementById("ikama").style.display = "flex"
+}, 240000);
+
+
+    }
+})
 //180000
+icamaCounter(localStorage.getItem("icamaCurtlly"))
+function icamaCounter(value){
+let secoundTest = 60
+let mins = parseInt(value)
+let interva = setInterval(() => {
+--secoundTest
+if(secoundTest< 0){
+secoundTest=59
+if(mins>0){
+    --mins
+}
+else{
+mins = 0
+}
+
+}
+
+setInterval(() => {
+if( mins <=0 && secoundTest === 0){
+    clearInterval(interva)
+}
+}, 1);
+let secoundValue = secoundTest>=10?secoundTest:`0${secoundTest}`
+let minsValue = mins>=10?mins:`0${mins}`
+$.getElementById("theCounter").textContent = `${minsValue}:${secoundValue}`
+setInterval(()=>{
+if(`${minsValue}:${secoundValue}` === "00:00"){
+$.getElementById("ikama").style.display = "none"
+$.getElementById("alert").style.display = "flex"
+}
+},1)
+
+}, 1000);
+
+}
