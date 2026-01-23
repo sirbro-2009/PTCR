@@ -67,7 +67,7 @@ $.getElementById("ikama").style.display = "flex"
     }
 })
 
-icamaCounter(localStorage.getItem("icamaCurtlly")||0)
+icamaCounter(localStorage.getItem("icamaCurtlly")||5)
 
 
 function icamaCounter(value){
@@ -104,4 +104,3 @@ $.getElementById("alert").style.display = "flex"
 }, 1000);
 
 }
-
