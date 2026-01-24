@@ -21,6 +21,7 @@ let dhurIcama = localStorage.getItem("dhurIcama")||0
 let fadjrIcama = localStorage.getItem("fadjrIcama")||0
 let allIcama = [fadjrIcama,dhurIcama,assrIcama,magIcama,ishaIcama]
 ///
+setInterval(() => {
 for (let i = 0; i < allTimes.length; i++) {
     counter(allTimes[i],allIcama[i])
     
@@ -35,6 +36,7 @@ if(fhpChe === time){
     localStorage.setItem("icamaCurtlly",icama)
 }
 }
+}, 1);
 //style
 if(localStorage.getItem("bgImg")!==null){
 $.body.style.background = `url(${localStorage.getItem("bgImg")}`
