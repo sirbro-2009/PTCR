@@ -106,4 +106,5 @@ $.getElementById("alert").style.display = "flex"
 }
     setTimeout(() => {
     window.location.href = "index.html"
-    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+4000)||360000);
+    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+10000)||360000);
+
