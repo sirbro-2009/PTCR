@@ -3,7 +3,7 @@ let $ = document
 
     setTimeout(() => {
     window.location.href = "index.html"
-    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+3000)||303000);
+    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+3000)||360000);
 
 //prayer 
 let fadjTime = localStorage.getItem("fadjTime")
@@ -67,7 +67,7 @@ $.getElementById("ikama").style.display = "flex"
     }
 })
 
-icamaCounter(parseInt(localStorage.getItem("icamaCurtlly"))-1||5)
+icamaCounter(parseInt(localStorage.getItem("icamaCurtlly"))-1||4)
 
 
 function icamaCounter(value){
