@@ -1,9 +1,7 @@
 let $ = document
 ///
 
-    setTimeout(() => {
-    window.location.href = "index.html"
-    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+3000)||360000);
+
 
 //prayer 
 let fadjTime = localStorage.getItem("fadjTime")
@@ -14,11 +12,11 @@ let Isha = localStorage.getItem("Isha")
 let allTimes = [fadjTime,DhuhrTime,Asr,magreb,Isha]
 
 //ishaIcama magIcama assrIcama dhurIcama fadjrIcama
-let ishaIcama = localStorage.getItem("ishaIcama")||0
-let magIcama=localStorage.getItem("magIcama")||0
-let assrIcama = localStorage.getItem("assrIcama")||0
-let dhurIcama = localStorage.getItem("dhurIcama")||0
-let fadjrIcama = localStorage.getItem("fadjrIcama")||0
+let ishaIcama = localStorage.getItem("IshaIcama")||2
+let magIcama=localStorage.getItem("MaghribIcama")||2
+let assrIcama = localStorage.getItem("AsrIcama")||2
+let dhurIcama = localStorage.getItem("DhuhrIcama")||2
+let fadjrIcama = localStorage.getItem("FadjrIcama")||2
 let allIcama = [fadjrIcama,dhurIcama,assrIcama,magIcama,ishaIcama]
 ///
 setInterval(() => {
@@ -106,3 +104,6 @@ $.getElementById("alert").style.display = "flex"
 }, 1000);
 
 }
+    setTimeout(() => {
+    window.location.href = "index.html"
+    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+4000)||360000);
