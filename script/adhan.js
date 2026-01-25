@@ -44,16 +44,16 @@ $.body.style.backgroundSize = "cover"
 setTimeout(() => {
 $.getElementById("adhan").style.display = "none"
 $.getElementById("afterAdhan").style.display = "flex"
-}, 12000);
+}, 120000);
 setTimeout(()=>{
 $.getElementById("afterAdhan").style.display = "none"
 $.getElementById("adhan1").style.display = "flex"
-},18000)
+},180000)
 allIcama.forEach((e)=>{
     if(e===null){
 setTimeout(() => {
 window.location.href = "index.html"   
-}, 24000);
+}, 240000);
     }
     else{
 setTimeout(() => {
@@ -99,10 +99,10 @@ $.getElementById("alert").style.display = "flex"
 }
 },1)
 
-}, 100);
+}, 1000);
 
 }
     setTimeout(() => {
     localStorage.removeItem("icamaCurtlly")
     window.location.href = "index.html"
-    }, (parseInt(icamLocal)*6000+1000)||36000);
+    }, (parseInt(icamLocal)*60000+10000)||360000);
