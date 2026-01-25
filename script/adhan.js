@@ -59,7 +59,7 @@ window.location.href = "index.html"
 setTimeout(() => {
 $.getElementById("adhan1").style.display =  "none"
 $.getElementById("ikama").style.display = "flex"
-}, 24000);
+}, 240000);
 
 
     }
