@@ -1,10 +1,6 @@
 let $ = document
 ///
-setTimeout(()=>{
-location.reload()
-},0)
-
-
+let icamLocal = localStorage.getItem("icamaCurtlly")
 //prayer 
 let fadjTime = localStorage.getItem("fadjTime")
 let DhuhrTime = localStorage.getItem("DhuhrTime")
@@ -48,22 +44,22 @@ $.body.style.backgroundSize = "cover"
 setTimeout(() => {
 $.getElementById("adhan").style.display = "none"
 $.getElementById("afterAdhan").style.display = "flex"
-}, 120000);
+}, 12000);
 setTimeout(()=>{
 $.getElementById("afterAdhan").style.display = "none"
 $.getElementById("adhan1").style.display = "flex"
-},180000)
+},18000)
 allIcama.forEach((e)=>{
     if(e===null){
 setTimeout(() => {
 window.location.href = "index.html"   
-}, 240000);
+}, 24000);
     }
     else{
 setTimeout(() => {
 $.getElementById("adhan1").style.display =  "none"
 $.getElementById("ikama").style.display = "flex"
-}, 240000);
+}, 24000);
 
 
     }
@@ -103,11 +99,10 @@ $.getElementById("alert").style.display = "flex"
 }
 },1)
 
-}, 1000);
+}, 100);
 
 }
     setTimeout(() => {
     localStorage.removeItem("icamaCurtlly")
     window.location.href = "index.html"
-
-    }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+10000)||360000);
+    }, (parseInt(icamLocal)*6000+1000)||36000);
