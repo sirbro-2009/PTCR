@@ -105,5 +105,6 @@ $.getElementById("alert").style.display = "flex"
 
 }
     setTimeout(() => {
+    localStorage.removeItem("icamaCurtlly")
     window.location.href = "index.html"
     }, (parseInt(localStorage.getItem("icamaCurtlly"))*60000+10000)||360000);
