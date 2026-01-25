@@ -358,39 +358,11 @@ let deviceCker = navigator.userAgent
 let rerIphone = /iPhone/
 let refAndroid= /Android/
 let tv = /TV/
+let styleElement = $.getElementById("styleType")
 if(rerIphone.test(deviceCker) === true){
-prayeBox.forEach((e)=>{
-e.style.width = `100%`
-e.style.height = `300px`
-e.style.marginTop = `30px`
-})
-allLines.forEach((e)=>{
-    e.style.flexDirection = `column`
-    e.style.marginBottom= `30px`
-    principaTime.style.marginTop = `30px`
-})
-resiZE(wiriteAble)
-resiZE(allName)
+styleElement.href="style/stylePhone.css"
 }
 if(refAndroid.test(deviceCker) === true ){
     if(tv.test(deviceCker) === false){
-prayeBox.forEach((e)=>{
-e.style.width = `100%`
-e.style.height = `150px`
-e.style.margin = `30px auto`
-
-})
-    allLines.forEach((e)=>{
-    e.style.flexDirection = `column`
-    e.style.marginBottom= `30px`
-    principaTime.style.marginTop = `30px`
-    })
-resiZE(wiriteAble)
-resiZE(allName)
-    }
-}
-function resiZE(name){
-    name.forEach((e)=>{
-        e.style.fontSize = `25px`
-    })
-}
+styleElement.href="style/stylePhone.css"
+}}
