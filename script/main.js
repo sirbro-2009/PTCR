@@ -6,6 +6,14 @@ let $ = document
 //set time and date for principalTime
 let theHours = $.getElementById("thehour")
 let theDay = $.getElementById("theDate")
+let code = localStorage.getItem("countryCode")||'sa'
+let arrayCoce = ['om','jo','sy','eg','ly','dz','ma','tn']
+let codeFinal
+for(let i = 0;i<arrayCoce.length;++i){
+    if(code === arrayCoce[i]){
+        codeFinal = '-1'
+    }
+}
 //hours
 let date = new Date(Date.now())
 let hours = date.getHours()<10?`0${date.getHours()}`:date.getHours()
@@ -72,7 +80,7 @@ navigator.permissions.query({ name: 'geolocation' })
     }
 let lat = localStorage.getItem("latF")
 let log = localStorage.getItem("logF")
-    let prayApilink = `https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&longitude=${log}&method=${window.localStorage.getItem("id")||3}&school=${localStorage.getItem("madhabValue")||0}&tune=${localStorage.getItem("ImsakOffset")||0},${localStorage.getItem("FadjrOffset")||0},0,${localStorage.getItem("DhuhrOffset")||0},${localStorage.getItem("AsrOffset")||0},${localStorage.getItem("MaghribOffset")||(localStorage.getItem("countryName") ==="Algeria"?3:0)},0,${localStorage.getItem("IshaOffset")||0},0` 
+    let prayApilink = `https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&longitude=${log}&method=${window.localStorage.getItem("id")||3}&school=${localStorage.getItem("madhabValue")||0}&tune=${localStorage.getItem("ImsakOffset")||0},${localStorage.getItem("FadjrOffset")||0},0,${localStorage.getItem("DhuhrOffset")||0},${localStorage.getItem("AsrOffset")||0},${localStorage.getItem("MaghribOffset")||(localStorage.getItem("countryName") ==="Algeria"?3:0)},0,${localStorage.getItem("IshaOffset")||0},0&calendarMethod=MATHEMATICAL&adjustment=${codeFinal}` 
     let waetherApiLink = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${log}&current_weather=true&timezone=auto`
     let placeApiLink = `https://us1.locationiq.com/v1/reverse.php?key=pk.c1726c6a2a12b42ad99a440efb52627d&lat=${lat}&lon=${log}&format=json`
     console.log(prayApilink,placeApiLink)
@@ -89,6 +97,9 @@ let log = localStorage.getItem("logF")
     let state = data.address.state||``
     let country = data.address.country||``
     localStorage.setItem("countryName",country)
+    let countryCode = data.address.country_code
+    localStorage.setItem("countryCode",countryCode)
+    console.log(countryCode)
     let fullAdrees = `${city}-${state}-${country}`
     thePLace.textContent = fullAdrees
     }
