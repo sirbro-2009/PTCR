@@ -7,6 +7,9 @@ body{
     justify-content: space-between;
     background-size: cover;
 }
+*{
+font-family: 'Lalezar';
+}
 .list{
     width: 550px;
     height: auto;
@@ -116,6 +119,18 @@ color: aliceblue;
     border: 3px solid transparent;
     border-radius: 50%;
     transition: all 1s ease;
+}
+.reset{
+    border-radius: 25px;
+    margin-left: 100px;
+    height: 50px;
+    width: 50px;
+    background: url("assets/user/reset.png");
+    background-size: 50px 50px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: all 1s ease;
+    
 }
 button:hover{
     transform: scale(1.1);
@@ -418,4 +433,8 @@ padding: 10px;
 }
 .desactive{
     display: none;
+}
+#theError{
+    text-align: center;
+    color: red;
 }

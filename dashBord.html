@@ -101,14 +101,14 @@ log out <button id="logOut"></button>
     
 </ul>
 <button id="uptadeTwo" title="update"></button>
-<button id="reset" title="reset"></button>
+<button id="reset" title="reset" ></button>
 </div>
 <div class="desactive" id="method">
     <ul id="options">
     <li id="lists">
     <span id="text">Select your a paray method </span>
     <select  id="theMethods">
-    <option >select one method please</option>
+    <option disabled selected>select one method please</option>
     <option value="1">1-University of Islamic Sciences, Karachi (South ASIA)</option>
     <option value="2">2-Islamic Society of North America (ISNA) </option>
     <option value="3">3-Muslim World League(Eu,TN,MA,..other countries)</option>
@@ -135,10 +135,10 @@ log out <button id="logOut"></button>
     </li>
 <li id="lists">
             <div class="chooceFg">
-            <span id="text" >edit pray time and imsak (add or reduction mins )</span>
+            <span id="text" >edit pray time and Sunrise (add or reduction mins )</span>
             <table  class="table">
                 <tr>
-                    <th>Imsak</th>
+                    <th>Sunrise</th>
                     <th>Isha</th>
                     <th>Maghrib</th>
                     <th>Asr</th>
@@ -146,7 +146,7 @@ log out <button id="logOut"></button>
                     <th>Fadjr</th>                    
                 </tr>
                 <tr>
-                    <td><input type="number" class="inputs" id="ImsakOffset"></td>
+                    <td><input type="number" class="inputs" id="SunriseOffset"></td>
                     <td><input type="number" class="inputs" id="IshaOffset"></td>
                     <td><input type="number" class="inputs" id="MaghribOffset"></td>
                     <td><input type="number" class="inputs" id="AsrOffset"></td>
@@ -159,6 +159,7 @@ log out <button id="logOut"></button>
     <li id="lists">
         <span id="text">madhab calc method</span>
         <select  id="madhab">
+            <option disabled selected>select your madhab</option>
             <option value="0">STANDARD(Maliki, Shafi'i, Hanbali)</option>
             <option value="1">Hanafi</option>
         </select>
@@ -166,12 +167,36 @@ log out <button id="logOut"></button>
     <li id="lists">
         <span id="text">Enter your city name
             <br>
-            (if you get problem 
-            <br>
-            with your browser)</span>
-        <input type="text" placeholder="enter valid name" id="localPlace" class="inputs">
+            (Add city manually)
+        </span>
+        <table  dir="rtl">
+        <tr>
+        <th>country</th>
+        <th>state</th>
+        <th>city</th>
+        </tr>
+        <tr>
+        <td>
+            <select  id="countriesSelect">
+                <option disabled selected>choice your country</option>
+            </select>
+        </td>
+        <td>
+            <select  id="statesSelect">
+                <option disabled selected>choice your state</option>
+            </select>
+        </td>
+        <td>
+            <select  id="citiesSelect">
+                <option disabled selected>choice your city</option>
+            </select>
+        </td>
+        </tr>
+        </table>
         <button id="theReset" >reset</button>
     </li>
+    <br>
+    <h1 id= "theError"></h1>
     </ul>
 
 </div>
@@ -181,7 +206,8 @@ log out <button id="logOut"></button>
     <ul id="options">
         <li id="lists">
             <span id="text">Enter mosque name</span>
-            <input type="text" id="mName">
+            <input type="text" id="mName" class="inputs">
+            <button class="reset" title="reset Mosque Name" id="resetMname"></button>
         </li>
         <li id="lists">
             <div class="chooceFg">
@@ -254,5 +280,6 @@ log out <button id="logOut"></button>
 
 </div>
 <script src="script/dashbord.js"></script>
+<script src="script/selectList.js"></script>
 </body>
 </html>

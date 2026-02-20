@@ -45,7 +45,7 @@ let dhour = $.getElementById("dhour")
 let assr = $.getElementById("assr")
 let moughrib = $.querySelectorAll("#moughrib")
 let isha = $.getElementById("isha")
-let Imsak = $.getElementById("Imsak")
+let sunRise = $.getElementById("sunRiseTime")
 let wiriteAble = $.querySelectorAll(".theTime")
 let allName = $.querySelectorAll(".timesName")
 let thePLace =$.getElementById("thePlace")
@@ -80,7 +80,7 @@ navigator.permissions.query({ name: 'geolocation' })
     }
 let lat = localStorage.getItem("latF")
 let log = localStorage.getItem("logF")
-    let prayApilink = `https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&longitude=${log}&method=${window.localStorage.getItem("id")||3}&school=${localStorage.getItem("madhabValue")||0}&tune=${localStorage.getItem("ImsakOffset")||0},${localStorage.getItem("FadjrOffset")||0},0,${localStorage.getItem("DhuhrOffset")||0},${localStorage.getItem("AsrOffset")||0},${localStorage.getItem("MaghribOffset")||(localStorage.getItem("countryName") ==="Algeria"?3:0)},0,${localStorage.getItem("IshaOffset")||0},0&calendarMethod=MATHEMATICAL&adjustment=${codeFinal}` 
+    let prayApilink = `https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&longitude=${log}&method=${window.localStorage.getItem("id")||3}&school=${localStorage.getItem("madhabValue")||0}&tune=0,${localStorage.getItem("FadjrOffset")||0},${localStorage.getItem("SunriseOffset")||0},${localStorage.getItem("DhuhrOffset")||0},${localStorage.getItem("AsrOffset")||0},${localStorage.getItem("MaghribOffset")||(localStorage.getItem("countryName") ==="Algeria"?3:0)},0,${localStorage.getItem("IshaOffset")||0},0&calendarMethod=MATHEMATICAL&adjustment=${codeFinal}` 
     let waetherApiLink = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${log}&current_weather=true&timezone=auto`
     let placeApiLink = `https://us1.locationiq.com/v1/reverse.php?key=pk.c1726c6a2a12b42ad99a440efb52627d&lat=${lat}&lon=${log}&format=json`
     console.log(prayApilink,placeApiLink)
@@ -135,8 +135,8 @@ let log = localStorage.getItem("logF")
         isha.textContent = Isha
         localStorage.setItem("Isha",Isha)
         //Imsak
-        let imsak = dataTime.data.timings.Imsak
-        Imsak.textContent = imsak
+        let suNrise = dataTime.data.timings.Sunrise
+        sunRise.textContent = suNrise
         
         //full date
         let hijriweekDay = dataTime.data.date.hijri.weekday.ar
@@ -144,15 +144,19 @@ let log = localStorage.getItem("logF")
         let hijriMonth = dataTime.data.date.hijri.month.ar
         let hijriYear = dataTime.data.date.hijri.year
         let fullhijriDate = `${hijriYear} ${hijriweekDay} ${hijriDay} ${hijriMonth}`
+        if(hijriMonth ==='رَمَضان'){$.getElementById("TheOccasion").textContent = 'رمضان مبارك'}
+        if(hijriMonth ==='شَوّال' && hijriDay === '1'){$.getElementById("TheOccasion").textContent = 'عيد فطر  سعيد'}
+        if(hijriMonth ==='ذوالحجة' && hijriDay === '10'){$.getElementById("TheOccasion").textContent = 'عيد اضحى  سعيد'}
         let time = [fullgregorYear,fullhijriDate]
         setInterval(() => {
         let rendomDate = time[parseInt(Math.random()*time.length)]
         theDay.textContent = rendomDate
-        }, 5000);
+        }, 3000);
         }
     )
     //fetch wherther API
-    fetch(waetherApiLink).then(
+fetch(waetherApiLink).then(
+
     (res)=>{
         let resData = res.json()
         
@@ -165,36 +169,37 @@ let log = localStorage.getItem("logF")
             let dayStatu = data.current_weather.is_day
             
 let wetherEmoj =
-whertherCode === 0  ?dayStatu ===1?"☀️":"🌑" :
-whertherCode === 1  ?dayStatu ===1?"🌤️":"🌑☁️" :
-whertherCode === 2  ?dayStatu ===1? "⛅" :"🌑☁️" :
-whertherCode === 3  ? "☁️" :
-whertherCode === 45 ? "🌫️" :
-whertherCode === 48 ? "🌫️❄️" :
-whertherCode === 51 ? "🌦️" :
-whertherCode === 53 ? "🌦️" :
-whertherCode === 55 ? "🌧️" :
-whertherCode === 56 ? "🌧️❄️" :
-whertherCode === 57 ? "🌧️❄️" :
-whertherCode === 61 ? "🌧️" :
-whertherCode === 63 ? "🌧️🌧️" :
-whertherCode === 65 ? "🌧️⛈️" :
-whertherCode === 66 ? "🌧️❄️" :
-whertherCode === 67 ? "🌧️❄️" :
-whertherCode === 71 ? "🌨️" :
-whertherCode === 73 ? "🌨️🌨️" :
-whertherCode === 75 ? "❄️❄️" :
-whertherCode === 77 ? "🌨️" :
-whertherCode === 80 ? "🌦️" :
-whertherCode === 81 ? "🌦️🌧️" :
-whertherCode === 82 ? "🌧️⛈️" :
-whertherCode === 85 ? "🌨️" :
-whertherCode === 86 ? "❄️🌨️" :
-whertherCode === 95 ? "⛈️" :
-whertherCode === 96 ? "⛈️🧊" :
-whertherCode === 99 ? "⛈️🧊🧊" :
-"🌡️";
-            theWeather.textContent = `${temperature}°C${wetherEmoj}`
+whertherCode === 0  ?dayStatu ===1?"https://openweathermap.org/img/wn/01d@2x.png":"style/assets/weather/night/moon.png" :
+whertherCode === 1  ?dayStatu ===1?"style/assets/weather/day/partly-cloudy.png":"style/assets/weather/night/partly-cloudy-night.png" :
+whertherCode === 2  ?dayStatu ===1? "https://openweathermap.org/img/wn/02d@2x.png" :"https://openweathermap.org/img/wn/02n@2x.png" :
+whertherCode === 3  ? "https://openweathermap.org/img/wn/03n@2x.png" :
+whertherCode === 45 ? "https://openweathermap.org/img/wn/50d@2x.png" :
+whertherCode === 48 ? "https://openweathermap.org/img/wn/50n@2x.png":
+whertherCode === 51 ? "https://openweathermap.org/img/wn/10d@2x.png" :
+whertherCode === 53 ? "https://openweathermap.org/img/wn/10d@2x.png" :
+whertherCode === 55 ? "https://openweathermap.org/img/wn/09d@2x.png" :
+whertherCode === 56 ? "https://openweathermap.org/img/wn/10n@2x.png" :
+whertherCode === 57 ? "https://openweathermap.org/img/wn/10n@2x.png" :
+whertherCode === 61 ? "style/assets/weather/others/rainy.png" :
+whertherCode === 63 ? "style/assets/weather/others/rainy.png" :
+whertherCode === 65 ? "https://openweathermap.org/img/wn/10d@2x.png" :
+whertherCode === 66 ? "https://openweathermap.org/img/wn/10n@2x.png" :
+whertherCode === 67 ? "https://openweathermap.org/img/wn/10n@2x.png" :
+whertherCode === 71 ? "https://openweathermap.org/img/wn/13n@2x.png" :
+whertherCode === 73 ? "https://openweathermap.org/img/wn/13n@2x.png" :
+whertherCode === 75 ? "https://openweathermap.org/img/wn/13d@2x.png" :
+whertherCode === 77 ? "https://openweathermap.org/img/wn/13n@2x.png" :
+whertherCode === 80 ? "https://openweathermap.org/img/wn/10d@2x.png" :
+whertherCode === 81 ? "https://openweathermap.org/img/wn/10d@2x.png" :
+whertherCode === 82 ? "https://openweathermap.org/img/wn/11d@2x.png" :
+whertherCode === 85 ? "https://openweathermap.org/img/wn/13n@2x.png" :
+whertherCode === 86 ? "https://openweathermap.org/img/wn/13n@2x.png" :
+whertherCode === 95 ? "https://openweathermap.org/img/wn/11d@2x.png" :
+whertherCode === 96 ? "https://openweathermap.org/img/wn/11d@2x.png" :
+whertherCode === 99 ? "https://openweathermap.org/img/wn/11d@2x.png" :
+"style/assets/weather/others/thermometer.png";
+            $.getElementById("theWeather").textContent = `${temperature}°C`
+            $.getElementById("emojiofWheter").src = `${wetherEmoj}`
         }
     )
 });

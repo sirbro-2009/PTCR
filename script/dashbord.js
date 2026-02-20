@@ -23,6 +23,7 @@ nameDisplay.textContent = "unknow"
 }
 else{
 nameDisplay.textContent = window.localStorage.getItem("user")
+nameInput.placeholder =localStorage.getItem("user")
 }
 }
 nameCheck()
@@ -185,6 +186,11 @@ localStorage.setItem("pBg","#6B4423")
 localStorage.removeItem("bgImg")
 location.reload()
 }
+styleColorInputs('fg',color,'#ffd700')
+styleColorInputs('pboxBg',fColor,'#2b1c11')
+styleColorInputs('pBg',pColor,'#6B4423')
+///
+function styleColorInputs(value,input,colorValue){if(localStorage.getItem(value) === null){input.value = colorValue}}
 //method
 let theMethod = $.getElementById("theMethods")
 theMethod.onclick = (_)=>{
@@ -196,6 +202,12 @@ theMethod.onclick = (_)=>{
 let mName = $.getElementById("mName")
 mName.onchange = (_)=>{
     localStorage.setItem("mName",mName.value)
+}
+validCheck("mName",mName)
+let resetMname = $.getElementById("resetMname")
+resetMname.onclick = ()=>{
+    localStorage.removeItem("mName")
+    mName.value = ''
 }
 //icamaValue
 let FadjrIcama = $.getElementById("FadjrIcama")
@@ -222,6 +234,7 @@ adhkars.onchange = (_)=>{
     console.log(adhkars.value.split("\n"))
     localStorage.setItem("adhkar",adhkars.value.split("\n"))
 }
+validCheck("adhkar",adhkars)
 //adkar period
 let sec = $.getElementById("sec")
 let mi = $.getElementById("mi")
@@ -247,8 +260,11 @@ displayTime.oninput = (_)=>{
     let hourss = parseInt(time[0])*60*60*1000
     let mins = parseInt(time[1])*60*1000
     let allmillTime = hourss+mins
+    localStorage.setItem('displayTimeWithouChange',displayTime.value)
     localStorage.setItem("displayTime",allmillTime)
 }
+validCheck("displayTimeWithouChange",displayTime)
+function validCheck (value,input){if(localStorage.getItem(value) !== null){input.value = localStorage.getItem(value).replaceAll(',','\n')}}
 //even and mroning adhkar
 let mornAdhkar = $.getElementById("mornAdhkar")
 let evenAdhkar = $.getElementById("evenAdhkar")
@@ -257,10 +273,13 @@ mornAdhkar.onchange = (_)=>{
 let value= mornAdhkar.checked
 localStorage.setItem("adhkarValue",value)
 }
+checkedCheck("adhkarValue",mornAdhkar)
 evenAdhkar.onchange = (_)=>{
 let value= evenAdhkar.checked
 localStorage.setItem("adhkarValue2",value)
 }
+checkedCheck("adhkarValue2",evenAdhkar)
+function checkedCheck (value,checkBox){if(localStorage.getItem(value)==='true'){checkBox.checked = true}}
 //dashbord elemnt selects
 let div1 = $.getElementById("accont")
 let div2 = $.getElementById("styles")
@@ -286,24 +305,43 @@ function clicker(liName,divName){
 liName.onclick = (_)=>{
 divName.classList.add("Setup")
 divName.classList.remove("desactive")
-everyDiv.forEach((e)=>{
+
+everyDiv.forEach((e,i)=>{
     if(e !== divName){
             e.classList.add("desactive")
     e.classList.remove("Setup")
+    }
+    else if(e === divName){
+    localStorage.setItem("lastPageIndex",i)
     }
 
 })
 }
 }
+if(localStorage.getItem("lastPageIndex") !== null){
+let lastPageIndex = parseInt(localStorage.getItem("lastPageIndex"))
+everyDiv.forEach((e,i)=>{
+    if(i !== lastPageIndex){
+        e.classList.add("desactive")
+        e.classList.remove("Setup")
+    }
+    else if(i === lastPageIndex){
+        localStorage.setItem("lastPageIndex",i)
+        e.classList.add("Setup")
+        e.classList.remove("desactive")
+    }
 
+})
+
+}
 //offset pray time
 let FadjrOffset = $.getElementById("FadjrOffset")
 let DhuhrOffset = $.getElementById("DhuhrOffset")
 let AsrOffset = $.getElementById("AsrOffset")
 let MaghribOffset = $.getElementById("MaghribOffset")
 let IshaOffset = $.getElementById("IshaOffset")
-let ImsakOffset = $.getElementById("ImsakOffset")
-let listOffset = [FadjrOffset,DhuhrOffset,AsrOffset,MaghribOffset,IshaOffset,ImsakOffset]
+let SunriseOffset = $.getElementById("SunriseOffset")
+let listOffset = [FadjrOffset,DhuhrOffset,AsrOffset,MaghribOffset,IshaOffset,SunriseOffset]
 listOffset.forEach((e)=>{
 e.oninput= ()=>{
 localStorage.setItem(e.id,e.value)
@@ -315,23 +353,6 @@ optionsMadhab.onchange = ()=>{
     localStorage.setItem("madhabValue",optionsMadhab.value)
 }
 //place
-let localPlace = $.getElementById("localPlace")
-localPlace.oninput = ()=>{
-    fetch(`https://nominatim.openstreetmap.org/search?q=${localPlace.value}&format=json`).then(
-        (data)=>{
-        let userData = data.json()
-        return userData
-        }
-    ).then(
-        (allData)=>{
-            let lon = allData[0].lon
-            localStorage.setItem("log",lon)
-            let lat = allData[0].lat
-            localStorage.setItem("lat",lat)
-            let cityName = allData[0].name
-            localStorage.setItem("nameCity",cityName)
-        })
-}
 let theReset = $.getElementById("theReset")
 theReset.onclick = ()=>{
 remove("log")

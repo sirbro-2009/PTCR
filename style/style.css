@@ -86,13 +86,16 @@ transform: scale(1.1);
     text-align: center;
     align-items: center;
     background: color-mix(in srgb, #6B4423 60%, transparent 40%);
-    padding: 10px;
+    padding: 5px;
     border-radius: 25px;
     width: 500px;
     height: 300px;
 
 }
-
+#TheOccasion{
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+}
 .prayerTime{
     display: flex;
     justify-content: space-between;
@@ -162,4 +165,9 @@ font-size: 25px;
 }
 #version{
 color: white;
+}
+#theWeatherInforamtions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
