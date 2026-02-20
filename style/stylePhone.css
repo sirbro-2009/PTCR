@@ -166,4 +166,10 @@ color: white;
 }
 .timesName,.theTime{
     font-size: 25px;
+
+}
+#theWeatherInforamtions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
