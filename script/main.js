@@ -134,7 +134,7 @@ let log = localStorage.getItem("logF")
         let Isha = dataTime.data.timings.Isha
         isha.textContent = Isha
         localStorage.setItem("Isha",Isha)
-        //Imsak
+        //suNrise
         let suNrise = dataTime.data.timings.Sunrise
         sunRise.textContent = suNrise
         
@@ -381,4 +381,5 @@ styleElement.href="style/stylePhone.css"
 if(refAndroid.test(deviceCker) === true ){
     if(tv.test(deviceCker) === false){
 styleElement.href="style/stylePhone.css"
+
 }}
