@@ -20,7 +20,9 @@ font-family: 'Lalezar';
     font-size: 25px;
     display: flex;
     flex-direction: column;
+    transition: all 1s ease;
 }
+
 .user{
     display: flex;
     align-items: center;

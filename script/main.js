@@ -134,7 +134,7 @@ let log = localStorage.getItem("logF")
         let Isha = dataTime.data.timings.Isha
         isha.textContent = Isha
         localStorage.setItem("Isha",Isha)
-        //suNrise
+        //Imsak
         let suNrise = dataTime.data.timings.Sunrise
         sunRise.textContent = suNrise
         
@@ -155,6 +155,7 @@ let log = localStorage.getItem("logF")
         }
     )
     //fetch wherther API
+    console.log(waetherApiLink)
 fetch(waetherApiLink).then(
 
     (res)=>{
@@ -381,5 +382,4 @@ styleElement.href="style/stylePhone.css"
 if(refAndroid.test(deviceCker) === true ){
     if(tv.test(deviceCker) === false){
 styleElement.href="style/stylePhone.css"
-
 }}
