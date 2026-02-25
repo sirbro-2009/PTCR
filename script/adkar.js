@@ -3,7 +3,7 @@ if(localStorage.getItem("adhkar") !==null){
 localStorage.getItem("adhkar").split(",").forEach((e)=>{
 let h1 = $.createElement("h1")
 h1.id = "h1"
-h1.textContent = e === ` `?"صل على محمد -صلى الله عليه و سلم -":e
+h1.textContent = e === ``?"صل على محمد -صلى الله عليه و سلم -":e
 $.getElementById("adkars").appendChild(h1)
 })
 }

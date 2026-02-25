@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBord</title>
-    <link rel="stylesheet" href="style/dashBordstyle.css">
+    <link rel="stylesheet" href="style/dashBordstyle.css" id="stylesheet">
     <link rel="icon" href="style/assets/icon.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +40,9 @@
 log out <button id="logOut"></button>
 </li>
 </ul>
+<br>
 <button id="uptade" title="update"></button>
+<button id="buttonBack"></button>
 </div>
 <!--the style class="Setup"-->
 <div class="desactive" id="styles">
@@ -102,6 +104,7 @@ log out <button id="logOut"></button>
 </ul>
 <button id="uptadeTwo" title="update"></button>
 <button id="reset" title="reset" ></button>
+<button id="buttonBack"></button>
 </div>
 <div class="desactive" id="method">
     <ul id="options">
@@ -159,7 +162,7 @@ log out <button id="logOut"></button>
     <li id="lists">
         <span id="text">madhab calc method</span>
         <select  id="madhab">
-            <option disabled selected>select your madhab</option>
+            <option disabled selected value="0">select your madhab</option>
             <option value="0">STANDARD(Maliki, Shafi'i, Hanbali)</option>
             <option value="1">Hanafi</option>
         </select>
@@ -169,7 +172,7 @@ log out <button id="logOut"></button>
             <br>
             (Add city manually)
         </span>
-        <table  dir="rtl">
+        <table  dir="rtl" >
         <tr>
         <th>country</th>
         <th>state</th>
@@ -181,6 +184,7 @@ log out <button id="logOut"></button>
                 <option disabled selected>choice your country</option>
             </select>
         </td>
+        
         <td>
             <select  id="statesSelect">
                 <option disabled selected>choice your state</option>
@@ -198,7 +202,7 @@ log out <button id="logOut"></button>
     <br>
     <h1 id= "theError"></h1>
     </ul>
-
+<button id="buttonBack"></button>
 </div>
 <!--setup mosque information(for mosques only)-->
 <div class="desactive" id="smI">
@@ -232,6 +236,7 @@ log out <button id="logOut"></button>
         </li>
 
     </ul>
+<button id="buttonBack"></button>
 </div>
 <div class="desactive" id="values">
     <ul id="options">
@@ -261,6 +266,7 @@ log out <button id="logOut"></button>
         <span></span>
         </li>
     </ul>
+<button id="buttonBack"></button>
 </div>
 <div class="desactive" id="questions">
     <li id="lists">
@@ -277,7 +283,7 @@ log out <button id="logOut"></button>
     <li id="lists">input ypur adkars,and display time</li>
     <li id="lists">must i uplod image only in style or uplode input?</li>
     <li id="lists">Yes,you must</li>
-
+<button id="buttonBack"></button>
 </div>
 <script src="script/dashbord.js"></script>
 <script src="script/selectList.js"></script>

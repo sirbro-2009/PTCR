@@ -1,6 +1,5 @@
 ////بسم الله الرحمن الرحيم
-
-
+///
 let $ = document
 
 //set time and date for principalTime
@@ -264,16 +263,16 @@ let AsrIcama = $.getElementById("assrIcama")
 let MaghribIcama = $.getElementById("magIcama")
 let IshaIcama = $.getElementById("ishaIcama")
 //
-let fadjIcamatime =localStorage.getItem("FadjrIcama")||" "
-let DhuhrIcamatime =localStorage.getItem("DhuhrIcama")||" "
-let AsrIcamatime =localStorage.getItem("AsrIcama")||" "
-let MagIcamatime =localStorage.getItem("MaghribIcama")||" "
-let IshaIcamatime =localStorage.getItem("IshaIcama")||" "
-FadjrIcama.textContent = `${"+"+fadjIcamatime}`
-DhuhrIcama.textContent = `${"+"+DhuhrIcamatime}`
-AsrIcama.textContent = `${"+"+AsrIcamatime}`
-MaghribIcama.textContent = `${"+"+MagIcamatime}`
-IshaIcama.textContent = `${"+"+IshaIcamatime}`
+let fadjIcamatime =localStorage.getItem("FadjrIcama")!==null?`+${localStorage.getItem("FadjrIcama")}`:` `
+let DhuhrIcamatime =localStorage.getItem("DhuhrIcama")!==null?`+${localStorage.getItem("DhuhrIcama")}`:` `
+let AsrIcamatime =localStorage.getItem("AsrIcama")!==null?`+${localStorage.getItem("AsrIcama")}`:` `
+let MagIcamatime =localStorage.getItem("MaghribIcama")!==null?`+${localStorage.getItem("MaghribIcama")}`:` `
+let IshaIcamatime =localStorage.getItem("IshaIcama")!==null?`+${localStorage.getItem("IshaIcama")}`:` `
+FadjrIcama.textContent = `${fadjIcamatime}`
+DhuhrIcama.textContent = `${DhuhrIcamatime}`
+AsrIcama.textContent = `${AsrIcamatime}`
+MaghribIcama.textContent = `${MagIcamatime}`
+IshaIcama.textContent = `${IshaIcamatime}`
 //mosqueName
 let mosqueName = $.getElementById("mosqueName")
 mosqueName.textContent = localStorage.getItem("mName")|| " "
@@ -328,10 +327,26 @@ let Asr = localStorage.getItem("Asr")
 let magreb = localStorage.getItem("magreb")
 let Isha = localStorage.getItem("Isha")
 let allParayers =[fadjTime1,DhuhrTime,Asr,magreb,Isha]
-
-function prayerTime(fhpChe,time){
+let paryerName=[' الفجر '," الظهر ","العصر","المغرب","العشاء"]
+function prayerTime(fhpChe,time,prayerNames){
 if(fhpChe === time){
-window.location.href = "adhan.html"    
+if("Notification" in window){
+    
+    if(Notification.permission === 'granted'){
+        new Notification(`  حان وقت صلاة  ${prayerNames} `)
+    }
+    else{
+        Notification.requestPermission().then(req=>{
+            if(req === 'granted'){
+            new Notification(` حان وقت صلاة   ${prayerNames} `)
+            }
+        })
+        console.log('bro')
+    }
+}
+setTimeout(() => {
+window.location.href = "adhan.html"  
+}, 4000);  
 }
 }
 setInterval(()=>{
@@ -340,7 +355,7 @@ let hours = date.getHours()<10?`0${date.getHours()}`:date.getHours()
 let mins = date.getMinutes()<10?`0${date.getMinutes()}`:date.getMinutes()
 let fhpChe =`${hours}:${mins}`    
 for (let index = 0; index < allParayers.length; index++) {
-prayerTime(fhpChe,allParayers[index])
+prayerTime(fhpChe,allParayers[index],paryerName[index])
 }
 },1000)
 //
@@ -355,12 +370,14 @@ let fullDAtecheck = `${hoursWithout0}:${mins}`
 if(localStorage.getItem("adhkarValue") === "true"){
 if(fhpChe === localStorage.getItem("adkarMorningtime")|| fullDAtecheck ===localStorage.getItem("adkarMorningtime")){
 location.href = "morningAdkar.html"
+adkarNotify('الصباح')
 }
 }
 //
 if(localStorage.getItem("adhkarValue2") === "true"){
 if(fhpChe === localStorage.getItem("adkarEveningtime") || fullDAtecheck === localStorage.getItem("adkarEveningtime")){
 location.href = "masaAdkar.html"
+adkarNotify('المساء')
 }}
 //
 }, 1000);
@@ -375,11 +392,36 @@ let deviceCker = navigator.userAgent
 let rerIphone = /iPhone/
 let refAndroid= /Android/
 let tv = /TV/
+
 let styleElement = $.getElementById("styleType")
 if(rerIphone.test(deviceCker) === true){
 styleElement.href="style/stylePhone.css"
+localStorage.setItem('isPhone',true)
+}
+else if(rerIphone.test(deviceCker) !== true){
+localStorage.setItem('isPhone',false)
 }
 if(refAndroid.test(deviceCker) === true ){
     if(tv.test(deviceCker) === false){
 styleElement.href="style/stylePhone.css"
+localStorage.setItem('isPhone',true)
+}
+else{
+localStorage.setItem('isPhone',false)
 }}
+
+function adkarNotify(name){
+if("Notification" in window){
+    
+    if(Notification.permission === 'granted'){
+        new Notification(`  حان وقت اذكار  ${name} `)
+    }
+    else{
+        Notification.requestPermission().then(req=>{
+            if(req === 'granted'){
+            new Notification(` حان وقت اذكار   ${name} `)
+            }
+        })
+    }
+}
+}

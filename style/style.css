@@ -7,7 +7,7 @@ body{
     background-color: #F6E9D7;
     background: url("assets/bg/mosquesBg/aqsa.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 1920px 1080px;
     padding: 10px;
     font-family: 'Lalezar';
     display: flex;
@@ -20,15 +20,33 @@ width: 100%;
 height: 100%;
 }
 .theOptions{
-    display: flex;
-    justify-content: space-between;
+margin: 0 auto;
+padding: 10px;
+right: 0;
+left: 0;
+background: color-mix(in srgb, rgb(172, 121, 39) 70%, transparent 30%);
+position: fixed;
+overflow: hidden;
+bottom: 0;
+display: flex;
+justify-content: space-between;
+width: 100%;
+align-items: center;
+height: 8%;
+}
+.theOptions>img,.theOptions>a>img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: all 1s ease;
+}
+.theOptions>img:hover,.theOptions>a>img:hover{
+transform: scale(1.1);
+}
+.theOptions>a{
     align-items: center;
-    text-align: center;
+    color: #ffffff;
 }
-.theOptions>p{
-    color: wheat;
-}
-
 option{
 background: color-mix(in srgb, burlywood 50%, transparent 50%);
 border: #F6E9D7 solid 2px;
@@ -40,15 +58,9 @@ color: #82562C;
 color: red;
 text-align: center;
 align-items: center;
-margin: 50px;
+font-size: 25px;
 }
-#mosqueName{
-    color: rgb(255, 162, 0);
-    text-align: center;
-    align-items: center;
-    font-size: 50px;
-    text-align: center;
-}
+
 #theWeather{
     color: blueviolet;
     font-size: 30px;
@@ -70,14 +82,13 @@ transform: scale(1.1);
 #prayBOX{
     font-family: 'andalus';
     margin-top: 1px;
-    width: 250px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     text-align: center;
     background: color-mix(in srgb, gold 60%, transparent 40%);
     border-radius: 25px;
-    padding: 10px;
     
 }
 /*principalTime*/
@@ -141,16 +152,9 @@ color: burlywood;
 direction: rtl;
 }
 #dashboard{
-    background: color-mix(in srgb, #6A4A2F  50%, burlywood 50%);
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 25px;
-    border: 2px solid #6A4A2F;
-    width: 500px;
-    height: 75px;
-    color: antiquewhite;
-    font-family: 'Lalezar';
-    transform: scale(1);
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
     transition: all 1s ease;
 }
 #dashboard:hover{
@@ -175,4 +179,26 @@ color: white;
 #emojiofWheter{
     width: 50px;
     height: 50px;
+}
+.theHeader{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+#mosqueName{
+    color: rgb(255, 162, 0);
+    font-size: 50px;
+    
+}
+.personalIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: rgb(244, 165, 63);
+    bottom: 0;
+}
+.personalIcon>img{
+    width: 100px;
+    height: 100px;
 }

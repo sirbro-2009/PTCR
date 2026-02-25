@@ -16,13 +16,43 @@ body{
 
 }
 .theOptions{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+margin: 0 auto;
+padding: 10px;
+right: 0;
+left: 0;
+background: color-mix(in srgb, rgb(172, 121, 39) 70%, transparent 30%);
+overflow: hidden;
+bottom: 0;
+display: flex;
+width: 100%;
+align-items: center;
+border-radius: 25px;
 }
-.theOptions>p{
-    color: wheat;
+.theOptions>img,.theOptions>a>img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: all 1s ease;
+}
+img:hover{
+transform: scale(1.20);
+}
+.theOptions>a{
+    align-items: center;
+    color: #ffffff;
+}
+.personalIcon{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    color: rgb(244, 165, 63);
+    bottom: 0;
+}
+.personalIcon>img{
+    width: 100px;
+    height: 100px;
 }
 
 option{
@@ -88,7 +118,6 @@ transform: scale(1.1);
     height: 150px;
 
 }
-
 .prayerTime{
     display: flex;
 
@@ -133,16 +162,9 @@ color: burlywood;
 direction: rtl;
 }
 #dashboard{
-    background: color-mix(in srgb, #6A4A2F  50%, burlywood 50%);
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 25px;
-    border: 2px solid #6A4A2F;
-    width: 500px;
-    height: 75px;
-    color: antiquewhite;
-    font-family: 'Lalezar';
-    transform: scale(1);
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
     transition: all 1s ease;
 }
 #dashboard:hover{

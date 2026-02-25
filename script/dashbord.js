@@ -1,6 +1,14 @@
 
 let $ = document 
-//window.localStorage.clear()
+let phone 
+//
+let stylesheet = $.getElementById("stylesheet")
+if(localStorage.getItem('isPhone') === "true"){
+stylesheet.href = 'style/dashBordstylePhone.css'
+
+console.log('done')
+phone = true
+}
 //change profile img
 let imgInput = $.getElementById("profileImg")
 let profileImg= $.getElementById("theUser")
@@ -300,25 +308,58 @@ let allLi = [li1,li2,li3,li4,li5,li6]
 for(let i = 0;i<allLi.length;++i){
     clicker(allLi[i],everyDiv[i])
 }
-function clicker(liName,divName){
 
+let Setup = $.querySelectorAll('.Setup')
+let list = $.getElementsByClassName('list')[0]
+
+
+function clicker(liName,divName){
 liName.onclick = (_)=>{
+let buttonBack  = $.querySelectorAll('#buttonBack')
+if(phone !== true){
 divName.classList.add("Setup")
 divName.classList.remove("desactive")
-
 everyDiv.forEach((e,i)=>{
     if(e !== divName){
-            e.classList.add("desactive")
+    e.classList.add("desactive")
     e.classList.remove("Setup")
+    
     }
     else if(e === divName){
     localStorage.setItem("lastPageIndex",i)
     }
-
 })
 }
+else if(phone === true){
+divName.classList.remove("desactive")
+divName.classList.add("Setup")
+divName.style.display = 'flex'
+list.style.display = 'none'
+everyDiv.forEach((e,i)=>{
+    if(e !== divName){
+    e.classList.add("desactive")
+    e.classList.remove("Setup")
+    e.style.display = 'none'
+    
+    }
+})
 }
-if(localStorage.getItem("lastPageIndex") !== null){
+    buttonBack.forEach((e)=>{
+    if(phone !== true){
+        e.style.display = 'none'
+    }
+    else if(phone === true){
+    e.onclick = ()=>{
+    divName.style.display = 'none'
+    divName.classList.remove('Setup')
+    divName.classList.add('desactive')
+    list.style.display = 'flex'
+    }           
+}
+    })
+}
+}
+if(localStorage.getItem("lastPageIndex") !== null ||phone!==true){
 let lastPageIndex = parseInt(localStorage.getItem("lastPageIndex"))
 everyDiv.forEach((e,i)=>{
     if(i !== lastPageIndex){

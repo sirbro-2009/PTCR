@@ -1,18 +1,17 @@
 body{
     background: url("assets/bg/mosquesBg/aqsa.jpg");
-    background-size: cover;
     font-family: 'Lalezar';
     background-repeat: no-repeat;
     display: flex;
     justify-content: space-between;
-    background-size: cover;
+    width: 360px;
 }
 *{
 font-family: 'Lalezar';
 }
 .list{
-    width: 550px;
-    height: auto;
+    width: 100%;
+    height: 150%;
     background: color-mix(in srgb, rgb(0, 0, 0) 30%, transparent 70%);
     border-radius: 25px;
     padding: 25px;
@@ -22,7 +21,6 @@ font-family: 'Lalezar';
     flex-direction: column;
     transition: all 1s ease;
 }
-
 .user{
     display: flex;
     align-items: center;
@@ -50,6 +48,7 @@ color: aliceblue;
 }
 #lists{
     margin-bottom: 50px;
+    margin: 25px auto;
     height: auto;
     background: color-mix(in srgb, bisque 30%, transparent 70%);
     border-radius: 25px;
@@ -60,6 +59,8 @@ color: aliceblue;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    width: 80%;
+    text-align: center;
 }
 #lists:hover{
     transform: scale(1.1);
@@ -68,20 +69,24 @@ color: aliceblue;
 }
 
 .Setup{
-    width: 900px;
-    margin-left: 10px;
+    width: 350px;
     height: auto;
+    padding: 50px;
+    height: 250%;
     border-radius: 25px;
     background: color-mix(in srgb, #F5f5dc 40%, transparent 60%);
+    display: none;
+    flex-direction: column;
+    padding: 20px;
 }
 #userOptions{
     display: flex;
     flex-direction: column;
     list-style: none;
+    width: 100%;
 }
 #option{
     margin-bottom: 50px;
-    height: auto;
     background: color-mix(in srgb, rgb(69, 35, 0) 30%, transparent 70%);
     border-radius: 25px;
     padding: 10px;
@@ -92,32 +97,47 @@ color: aliceblue;
     justify-content: space-between;
     cursor: pointer;
     margin-bottom: 100px;
+    width:250px;
+    
 }
 #option:hover{
     transform: scale(1.05);
     box-shadow: 2px 2px 5px rgb(255, 145, 0);
     color: rgb(83, 59, 50);
 }
-#uptade,#uptadeTwo{
+#uptade,#uptadeTwo,#buttonBack{
     border-radius: 25px;
     margin-left: 100px;
     height: 100px;
     width: 100px;
     background: url("assets/user/update.png");
-    background-size: 100px 100px;
+    background-size: cover;
     
     border: 3px solid transparent;
     border-radius: 50%;
     transition: all 1s ease;
     
 }
+#buttonBack{
+    border-radius: 25px;
+    margin-left: 100px;
+    height: 100px;
+    width: 100px;
+    background: url("assets/user/back.png");
+    background-size: cover;
+    
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: all 1s ease;
+}
+
 #reset{
     border-radius: 25px;
     margin-left: 100px;
     height: 100px;
     width: 100px;
     background: url("assets/user/reset.png");
-    background-size: 100px 100px;
+    background-size: cover;
     border: 3px solid transparent;
     border-radius: 50%;
     transition: all 1s ease;
@@ -125,10 +145,10 @@ color: aliceblue;
 .reset{
     border-radius: 25px;
     margin-left: 100px;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 200px;
     background: url("assets/user/reset.png");
-    background-size: 50px 50px;
+    background-size: 100px 100px;
     border: 3px solid transparent;
     border-radius: 50%;
     transition: all 1s ease;
@@ -158,7 +178,7 @@ button:hover{
     width: 50px;
     background-size: cover;
     transition: all 1s ease;
-
+    
 }
 .fileUpload:hover{
     transform: scale(1.5);
@@ -216,15 +236,13 @@ font-family: 'andalus';
     text-align: center;
     align-items: center;
     background: color-mix(in srgb, #6B4423 60%, transparent 40%);
-    padding: 10px;
+    padding: 5px;
     border-radius: 25px;
-    width: 500px;
-    height: 300px;
-    margin: 20px auto ;
-
+    width: 100%;
+    height: auto;
 }
 #thehour{
-font-size: 75px;
+font-size: 50px;
 color: white;
 }
 #theDate{
@@ -247,8 +265,8 @@ transform: scale(1.1);
     height: 40px;
 }
 #imgBg{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
 }
 
@@ -376,7 +394,7 @@ cursor: pointer;
 }
 #theMethods,#madhab,select{
 height: 40px;
-width: 150px;
+width: 50px;
 border-radius: 20px;
 background: color-mix(in srgb, burlywood 50%, transparent 50%);
 
@@ -424,11 +442,13 @@ padding: 10px;
 #theReset{
     background-color: #6B4423;
     color: antiquewhite;
-    font-size: 25px;
+    font-size: 20px;
+    padding: 2px;
     margin: 3px;
     border-radius: 25px;
     border: 1px solid transparent;
     transition: all 1s ease;
+    width: 50px;
 }
 #theReset:hover{
     transform: scale(1.1);
@@ -440,15 +460,7 @@ padding: 10px;
     text-align: center;
     color: red;
 }
-#buttonBack{
-    border-radius: 25px;
-    margin-left: 100px;
-    height: 100px;
-    width: 100px;
-    background: url("assets/user/back.png");
-    background-size: 100px 100px;
-    
-    border: 3px solid transparent;
-    border-radius: 50%;
-    transition: all 1s ease;
+#tableTable{
+width: 10%;
+overflow: hidden;
 }
